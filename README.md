@@ -1,17 +1,11 @@
 # 练习做一个类似商店的项目
 
-## Project setup
+## 运行命令
 ```
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
 npm run serve
-```
 
-### Compiles and minifies for production
-```
 npm run build
 ```
 
