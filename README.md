@@ -1,4 +1,4 @@
-# demo5
+# 练习做一个类似商店的项目
 
 ## Project setup
 ```
