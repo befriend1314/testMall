@@ -1,12 +1,15 @@
 <template>
-  <div class="home">
-    111
+  <div class="sort">
+    分类
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'Home',
+name: "Sort"
 }
 </script>
+
+<style scoped>
+
+</style>

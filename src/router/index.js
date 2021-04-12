@@ -1,15 +1,36 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-// component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+const Home = () => import(/* webpackChunkName: "home" */ '../views/Home/Home')
+const Sort = () => import(/* webpackChunkName: "sort" */ '../views/Sort/Sort')
+const Cart = () => import(/* webpackChunkName: "cart" */ '../views/Cart/Cart')
+const User = () => import(/* webpackChunkName: "user" */ '../views/User/User')
 const routes = [
   {
     path: '/',
+    redirect: 'home'
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/sort',
+    name: 'Sort',
+    component: Sort
+  },
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: Cart
+  },
+  {
+    path: '/user',
+    name: 'User',
+    component: User
   },
 ]
 
