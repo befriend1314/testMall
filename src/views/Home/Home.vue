@@ -3,18 +3,21 @@
     <nav-bar>
       <div slot="center">蘑菇街</div>
     </nav-bar>
-    <home-swiper :banners="banners" />
-    <home-recommend :recommends="recommends" />
-    <home-feature />
-    <tab-control
-      class="tab-control"
-      @tabClick="tabClick"
-      :tabTitles="tabTitles" />
-    <goods-list :goods="showGoods" />
-    <ul>
-      <li v-for="i in 100">这里是数据{{i}}</li>
-    </ul>
-    <back-top />
+    <scroll class="mycontent" :probe-type="3" ref="scroll" @scroll="contentScroll">
+      <home-swiper :banners="banners" />
+      <home-recommend :recommends="recommends" />
+      <home-feature />
+      <tab-control
+        class="tab-control"
+        @tabClick="tabClick"
+        :tabTitles="tabTitles" />
+      <goods-list :goods="showGoods" />
+      <ul>
+        <li v-for="i in 100">这里是数据{{i}}</li>
+      </ul>
+    </scroll>
+
+    <back-top @click.native="backTop" v-show="isShowBackTop"/>
   </div>
 </template>
 
@@ -34,6 +37,7 @@ export default {
   name: 'Home',
   data() {
      return {
+       isShowBackTop: false,
        banners: [],
        recommends: [],
        tabTitles: ['流行', '新款', '精选'],
@@ -87,6 +91,12 @@ export default {
           break
       }
     },
+    backTop(){
+      this.$refs.scroll.scrollTo(0,0)
+    },
+    contentScroll(position) {
+      this.isShowBackTop = -position.y > 1000
+    },
     /** 网络请求相关**/
     getMultidata() {
       getHomeMultidata().then((res) => {
@@ -107,7 +117,15 @@ export default {
 
 <style scoped>
 .home{
-  padding-top: 50px;
+  height: 100vh;
+}
+.mycontent{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50px;
+  bottom: 70px;
+  overflow: hidden;
 }
 .tab-control{
   position: -webkit-sticky;

@@ -12,6 +12,12 @@ import ObserveDOM from '@better-scroll/observe-dom'
 BScroll.use(ObserveDOM)
 export default {
   name: "Scroll",
+  props: {
+    probeType: {
+      type: Number,
+      default: 0
+    }
+  },
   data() {
     return{
       scroll: null
@@ -20,9 +26,17 @@ export default {
   mounted() {
     this.scroll = new BScroll(this.$refs.wrapper, {
       click: true,
+      probeType: this.probeType,
       observeDOM: true
     })
-
+    this.scroll.on('scroll', position => {
+      this.$emit('scroll', position)
+    })
+  },
+  methods: {
+    scrollTo(x, y, time=500) {
+      this.scroll.scrollTo(x, y, time)
+    }
   }
 }
 </script>
