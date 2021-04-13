@@ -37,6 +37,7 @@
     line-height: 40px;
     text-align: center;
     font-size: 16px;
+    background-color: #fff;
   }
   .item{
     flex: 1;

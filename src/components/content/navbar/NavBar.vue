@@ -13,13 +13,6 @@ name: "NavBar"
 </script>
 
 <style scoped>
-  .narbar{
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 10;
-  }
   .centerbox{
     height: 50px;
     line-height: 50px;

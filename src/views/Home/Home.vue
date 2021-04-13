@@ -3,6 +3,7 @@
     <nav-bar>
       <div slot="center">蘑菇街</div>
     </nav-bar>
+    <tab-control ref="tabControl1" v-show="isTabFix" class="vscontrol" @tabClick="tabClick" :tabTitles="tabTitles"/>
     <scroll
       class="mycontent"
       :probe-type="3"
@@ -14,9 +15,9 @@
       <home-recommend :recommends="recommends" />
       <home-feature />
       <tab-control
-        class="tab-control"
         @tabClick="tabClick"
-        :tabTitles="tabTitles" />
+        :tabTitles="tabTitles"
+        ref="tabControl2"/>
       <goods-list :goods="showGoods" />
     </scroll>
     <back-top @click.native="backTop" v-show="isShowBackTop"/>
@@ -40,6 +41,9 @@ export default {
   data() {
      return {
        isShowBackTop: false,
+       isTabFix: false,
+       tabOffsetTop: 0,
+       saveY: 0,
        banners: [],
        recommends: [],
        tabTitles: ['流行', '新款', '精选'],
@@ -72,11 +76,25 @@ export default {
       return this.goods[this.currentType].list
     }
   },
+  activated() {
+    this.$refs.scroll.scrollTo(0, this.saveY, 0)
+    this.$refs.scroll.scroll.refresh()
+  },
+  deactivated() {
+    this.saveY = this.$refs.scroll.scroll.y
+    console.log(this.saveY);
+  },
   created() {
     this.getMultidata()
     this.getGoods('pop')
     this.getGoods('new')
     this.getGoods('sell')
+  },
+  mounted() {
+    //获取 tabOffsetTop
+    setTimeout(() => {
+      this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
+    }, 1000)
   },
   methods: {
     /** 事件监听相关 **/
@@ -92,12 +110,17 @@ export default {
           this.currentType = 'sell'
           break
       }
+      this.$refs.tabControl1.currentIndex = index
+      this.$refs.tabControl2.currentIndex = index
     },
     backTop(){
       this.$refs.scroll.scrollTo(0,0)
     },
     contentScroll(position) {
-      this.isShowBackTop = -position.y > 1000
+      this.isShowBackTop = (-position.y) > 1000
+
+      // 控制切换按钮
+      this.isTabFix = (-position.y) > this.tabOffsetTop
     },
     loadMore() {
       this.getGoods(this.currentType)
@@ -126,6 +149,10 @@ export default {
 .home{
   height: 100vh;
 }
+.vscontrol{
+  position: relative;
+  z-index: 10;
+}
 .mycontent{
   position: absolute;
   left: 0;
@@ -133,11 +160,5 @@ export default {
   top: 50px;
   bottom: 70px;
   overflow: hidden;
-}
-.tab-control{
-  position: -webkit-sticky;
-  position: sticky;
-  top: 50px;
-  background-color: #fff;
 }
 </style>
