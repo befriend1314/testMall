@@ -20,7 +20,9 @@ name: "TabBar",
   left: 0;
   width: 100%;
   display: flex;
+  box-sizing: border-box;
   padding: 15px 0;
+  height: 70px;
   background-color: #f2f2f2;
 }
 .tab-bar{
