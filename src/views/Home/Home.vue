@@ -3,7 +3,13 @@
     <nav-bar>
       <div slot="center">蘑菇街</div>
     </nav-bar>
-    <scroll class="mycontent" :probe-type="3" ref="scroll" @scroll="contentScroll">
+    <scroll
+      class="mycontent"
+      :probe-type="3"
+      :pull-up-load="true"
+      ref="scroll"
+      @scroll="contentScroll"
+      @pullingUp="loadMore">
       <home-swiper :banners="banners" />
       <home-recommend :recommends="recommends" />
       <home-feature />
@@ -12,11 +18,7 @@
         @tabClick="tabClick"
         :tabTitles="tabTitles" />
       <goods-list :goods="showGoods" />
-      <ul>
-        <li v-for="i in 100">这里是数据{{i}}</li>
-      </ul>
     </scroll>
-
     <back-top @click.native="backTop" v-show="isShowBackTop"/>
   </div>
 </template>
@@ -97,6 +99,9 @@ export default {
     contentScroll(position) {
       this.isShowBackTop = -position.y > 1000
     },
+    loadMore() {
+      this.getGoods(this.currentType)
+    },
     /** 网络请求相关**/
     getMultidata() {
       getHomeMultidata().then((res) => {
@@ -109,6 +114,8 @@ export default {
       getHomeGoods(type, page).then(res => {
         this.goods[type].list.push(...res.data.list)
         this.goods[type].page += 1
+
+        this.$refs.scroll.finishPullUp()
       })
     }
   }
