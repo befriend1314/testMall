@@ -7,6 +7,7 @@ const Home = () => import(/* webpackChunkName: "home" */ '../views/Home/Home')
 const Sort = () => import(/* webpackChunkName: "sort" */ '../views/Sort/Sort')
 const Cart = () => import(/* webpackChunkName: "cart" */ '../views/Cart/Cart')
 const User = () => import(/* webpackChunkName: "user" */ '../views/User/User')
+const Detail = () => import(/* webpackChunkName: "detail" */ '../views/Detail/Detail')
 const routes = [
   {
     path: '/',
@@ -31,6 +32,11 @@ const routes = [
     path: '/user',
     name: 'User',
     component: User
+  },
+  {
+    path: '/detail/:iid',
+    name: 'Detail',
+    component: Detail
   },
 ]
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="goodsitem">
+  <div class="goodsitem" @click="itemClick(gooodsItem)">
     <img :src="gooodsItem.show.img" alt="">
     <div class="goodsintro">
       <p class="title">{{gooodsItem.title}}</p>
@@ -16,6 +16,11 @@ export default {
     gooodsItem: {
       type: Object,
       default: {}
+    }
+  },
+  methods: {
+    itemClick(item) {
+      this.$router.push('/Detail/' + item.iid)
     }
   }
 }

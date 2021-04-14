@@ -82,7 +82,6 @@ export default {
   },
   deactivated() {
     this.saveY = this.$refs.scroll.scroll.y
-    console.log(this.saveY);
   },
   created() {
     this.getMultidata()
