@@ -3,6 +3,12 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+// 当前路由重复点击时报错
+const originalReplace = VueRouter.prototype.replace
+VueRouter.prototype.replace = function replace(location) {
+  return originalReplace.call(this, location).catch(err => err)
+}
+
 const Home = () => import(/* webpackChunkName: "home" */ '../views/Home/Home')
 const Sort = () => import(/* webpackChunkName: "sort" */ '../views/Sort/Sort')
 const Cart = () => import(/* webpackChunkName: "cart" */ '../views/Cart/Cart')
@@ -34,7 +40,7 @@ const routes = [
     component: User
   },
   {
-    path: '/detail/:iid',
+    path: '/detail',
     name: 'Detail',
     component: Detail
   },

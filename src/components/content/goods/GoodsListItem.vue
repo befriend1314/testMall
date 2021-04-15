@@ -1,6 +1,6 @@
 <template>
   <div class="goodsitem" @click="itemClick(gooodsItem)">
-    <img :src="gooodsItem.show.img" alt="">
+    <img :src="showImg" alt="">
     <div class="goodsintro">
       <p class="title">{{gooodsItem.title}}</p>
       <span class="price">¥{{gooodsItem.price}}</span>
@@ -18,9 +18,21 @@ export default {
       default: {}
     }
   },
+  computed: {
+    showImg() {
+      return this.gooodsItem.image ||this.gooodsItem.show.img
+    }
+  },
   methods: {
     itemClick(item) {
-      this.$router.push('/Detail/' + item.iid)
+      if(this.gooodsItem.iid) {
+        this.$router.push({
+          path: '/detail',
+          query: {
+            iid: this.gooodsItem.iid
+          }
+        })
+      }
     }
   }
 }
