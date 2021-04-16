@@ -1,7 +1,6 @@
 <template>
   <div id="profile">
-    <nav-bar class="nav-bar"><div slot="center">用户中心</div></nav-bar>
-    <!--1.单独封装一个组件: 利用slot知识点-->
+    <nav-bar class="nav-bar"><div slot="center">个人中心</div></nav-bar>
     <UserInfo></UserInfo>
 
     <section class="account">
@@ -24,33 +23,30 @@
         <div class="account-info">我的积分</div>
       </div>
     </section>
-
     <list-view :list-data="orderList" class="order-list"></list-view>
     <list-view :list-data="serviceList" class="service-list"></list-view>
   </div>
 </template>
 
 <script>
-import ListView from "./chirldComps/ListView";
 import UserInfo from "./chirldComps/UserInfo";
+import ListView from './chirldComps/ListView';
 import NavBar from "components/content/navbar/NavBar";
 export default {
-  name: "User",
+  name: "Profile",
   components: {
-    UserInfo,
-    ListView,
-    NavBar
+    UserInfo, ListView, NavBar
   },
   data: function () {
     return {
       orderList: [
-        {icon: '#order', iconColor: '#ff8198', info: '我的消息'},
-        {icon: '#point', iconColor: '#fc7b53', info: '积分商城'},
-        {icon: '#vip', iconColor: '#ffc636', info: '会员卡'},
+        {icon: 'order', iconColor: '#ff8198', info: '我的消息'},
+        {icon: 'point', iconColor: '#fc7b53', info: '积分商城'},
+        {icon: 'vip', iconColor: '#ffc636', info: '会员卡'},
       ],
       serviceList: [
-        {icon: '#service', iconColor: '#ff8198', info: '我的购物车'},
-        {icon: '#download', iconColor: '#ff8198', info: '下载购物APP'},
+        {icon: 'service', iconColor: '#ff8198', info: '我的购物车'},
+        {icon: 'download', iconColor: '#ff8198', info: '下载购物APP'},
       ]
     }
   },
@@ -64,7 +60,6 @@ export default {
   background-color: #f2f2f2;
 }
 .nav-bar {
-  background-color: #fff;
   font-weight: 700;
   color: #fff;
 }
