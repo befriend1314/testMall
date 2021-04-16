@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     showImg() {
-      return this.gooodsItem.image ||this.gooodsItem.show.img
+      return this.gooodsItem.img || this.gooodsItem.image || this.gooodsItem.show.img
     }
   },
   methods: {
