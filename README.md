@@ -1,5 +1,5 @@
-# 练习模仿蘑菇街商城
-#### 带数据接口
+# Vue 练习模仿蘑菇街商城
+#### vue-cli4 + axios + Vuex + vue-router 带数据接口
 
 ## 项目预览  [点击查看在线DEMO](http://www.chuhei666.com)
 
