@@ -1,7 +1,7 @@
 # 练习模仿蘑菇街商城
 #### 带数据接口
 
-## 项目预览
+## 项目预览  [点击查看在线DEMO](http://www.chuhei666.com)
 
 ![avatar](docs/1.jpg) 
 
