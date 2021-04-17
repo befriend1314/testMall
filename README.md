@@ -3,19 +3,6 @@
 
 ## 项目预览  [点击查看在线DEMO](http://www.chuhei666.com)
 
-![avatar](docs/1.jpg) 
-
-![avatar](docs/2.jpg)
-
-![avatar](docs/3.jpg)
-
-![avatar](docs/4.jpg)
-
-![avatar](docs/5.jpg)
-
-![avatar](docs/6.jpg)
-
-
 功能
 * 轮播
 * 上拉加载更多
@@ -38,6 +25,19 @@ npm run serve
 打包
 npm run build
 ```
+
+
+![avatar](docs/1.jpg)
+
+![avatar](docs/2.jpg)
+
+![avatar](docs/3.jpg)
+
+![avatar](docs/4.jpg)
+
+![avatar](docs/5.jpg)
+
+![avatar](docs/6.jpg)
 
 
 ### Customize configuration
