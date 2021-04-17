@@ -1,5 +1,5 @@
 <template>
-  <scroll class="carlist-content">
+  <scroll class="car-list-content">
     <cart-list-item v-for="item in cartList" :key="item.iid" :item-info="item" />
   </scroll>
 </template>
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style scoped>
-  .carlist-content{
+  .car-list-content{
     height: calc(100vh - 170px) ;
     overflow: hidden;
   }

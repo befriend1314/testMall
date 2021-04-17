@@ -16,7 +16,7 @@ export default {
     banners: {
       type: Array,
       default: []
-    }
+    },
   },
   components: {
     Swiper,

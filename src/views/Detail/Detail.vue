@@ -1,7 +1,7 @@
 <template>
-  <div class="detailwrap">
+  <div class="detail-wrap">
     <detail-nav-bar class="detail-nav" @titleClick="titleClick" ref="nav"/>
-    <scroll class="detailscroll" ref="scroll" :probe-type="3" @scroll="contentScroll">
+    <scroll class="detail-scroll" ref="scroll" :probe-type="3" @scroll="contentScroll">
       <detail-swiper :topImages="topImages"/>
       <detail-base-info :goods="goods"/>
       <detail-shop-info :shop="shop"/>
@@ -137,14 +137,14 @@ export default {
     position: relative;
     z-index: 1002;
   }
-  .detailwrap{
+  .detail-wrap{
     position: relative;
     z-index: 1000;
     height: 100vh;
     background-color: #fff;
     overflow: hidden;
   }
-  .detailscroll{
+  .detail-scroll{
     height: calc(100% - 120px);
     overflow: hidden;
   }

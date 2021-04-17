@@ -6,7 +6,7 @@
       <scroll class="sortWrap">
         <div>
           <tab-content-category :subcategories="showSubcategory" />
-          <tab-control @tabClick="tabClick" :tabTitles="tabTitles" />
+          <tab-control @tabClick="tabClick" :tab-titles="tabTitles" />
           <tab-content-detail :category-detail="showCategoryDetail" />
         </div>
       </scroll>

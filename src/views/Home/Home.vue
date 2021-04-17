@@ -3,9 +3,9 @@
     <nav-bar>
       <div slot="center">蘑菇街</div>
     </nav-bar>
-    <tab-control ref="tabControl1" v-show="isTabFix" class="vscontrol" @tabClick="tabClick" :tabTitles="tabTitles"/>
+    <tab-control ref="tabControl1" v-show="isTabFix" class="vs-control" @tabClick="tabClick" :tab-titles="tabTitles"/>
     <scroll
-      class="mycontent"
+      class="my-content"
       :probe-type="3"
       :pull-up-load="true"
       ref="scroll"
@@ -16,7 +16,7 @@
       <home-feature />
       <tab-control
         @tabClick="tabClick"
-        :tabTitles="tabTitles"
+        :tab-titles="tabTitles"
         ref="tabControl2"/>
       <goods-list :goods="showGoods" />
     </scroll>
@@ -148,11 +148,11 @@ export default {
 .home{
   height: 100vh;
 }
-.vscontrol{
+.vs-control{
   position: relative;
   z-index: 10;
 }
-.mycontent{
+.my-content{
   position: absolute;
   left: 0;
   right: 0;

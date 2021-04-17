@@ -1,18 +1,18 @@
 <template>
-  <div v-if="Object.keys(goods).length !== 0" class="baseinfo">
-    <div class="infotitle">{{goods.title}}</div>
-    <div class="infoprice">
-      <span class="nprice">{{goods.newPrice}}</span>
-      <span class="oprice">{{goods.oldPrice}}</span>
+  <div v-if="Object.keys(goods).length !== 0" class="base-info">
+    <div class="info-title">{{goods.title}}</div>
+    <div class="info-price">
+      <span class="n-price">{{goods.newPrice}}</span>
+      <span class="o-price">{{goods.oldPrice}}</span>
       <span v-if="goods.discount" class="discount">{{goods.discount}}</span>
     </div>
-    <div class="infoother">
+    <div class="info-other">
       <span>{{goods.columns[0]}}</span>
       <span>{{goods.columns[1]}}</span>
       <span>{{goods.services[goods.services.length-1].name}}</span>
     </div>
-    <div class="infoservice">
-      <span class="infoserviceitem" v-for="i in goods.services.length-1" :key="i">
+    <div class="info-service">
+      <span class="info-service-item" v-for="i in goods.services.length-1" :key="i">
         <img :src="goods.services[i-1].icon" alt="">
         <span>{{goods.services[i-1].name}}</span>
       </span>
@@ -32,22 +32,22 @@ export default {
 </script>
 
 <style scoped>
-  .baseinfo{
+  .base-info{
     padding: 10px 10px 25px;
     border-bottom: 5px solid #eee;
   }
-  .infotitle{
+  .info-title{
     font-size: 18px;
     line-height: 1.4;
   }
-  .infoprice{
+  .info-price{
     margin-top: 10px;
   }
-  .nprice{
+  .n-price{
     font-size: 30px;
     color: #f00;
   }
-  .oprice{
+  .o-price{
     margin-left: 5px;
     color: #999;
     font-size: 16px;
@@ -61,7 +61,7 @@ export default {
     color: #fff;
     vertical-align: top;
   }
-  .infoother{
+  .info-other{
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -71,13 +71,13 @@ export default {
     font-size: 16px;
     color: #666;
   }
-  .infoservice{
+  .info-service{
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
     font-size: 14px;
   }
-  .infoservice img{
+  .info-service img{
     display: inline-block;
     margin-right: 2px;
     vertical-align: middle;

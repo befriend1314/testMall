@@ -1,6 +1,6 @@
 <template>
   <div class="bottom-menu">
-    <CheckButton class="select-all" @checkBtnClick="checkBtnClick" v-model="isSelectAll"></CheckButton>
+    <check-button class="select-all" @checkBtnClick="checkBtnClick" v-model="isSelectAll" />
     <span>全选</span>
     <span class="total-price">合计: ¥{{totalPrice}}</span>
     <span class="buy-product">去计算({{$store.getters.cartCount}})</span>
