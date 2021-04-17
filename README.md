@@ -4,23 +4,17 @@
 ## 项目预览
 
 ![avatar](docs/1.jpg) 
+
 ![avatar](docs/2.jpg)
+
 ![avatar](docs/3.jpg)
+
 ![avatar](docs/4.jpg)
+
 ![avatar](docs/5.jpg)
+
 ![avatar](docs/6.jpg)
-目录结构长这样
-````
-├── public
-└── src
-    ├── assets
-    ├── common
-    ├── components
-    ├── network
-    ├── router
-    ├── store
-    └── views
-````
+
 
 功能
 * 轮播
